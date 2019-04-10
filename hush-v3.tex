@@ -466,22 +466,30 @@ electronic commerce and payment, financial privacy, proof of work, zero knowledg
 
 \nsection{Things Staying The Same}
 
-21M total supply
-Block reward
-Block time
-Halving interval
+\begin{itemize}
+\item 21M total supply
+\item Block reward
+\item Block time
+\item Halving interval
+\item Delayed-Proof-Of-Work
+\end{itemize}
 
 \nsection{Things Changing}
 
-New Genesis Block (First Pure Sapling Chain)
-Super Fast Sapling Shielded Transactions
-s/ZEC/KMD/ as upstream
-New main Github repo
-Addition of 10\% Founders Reward
-Drop all support for Sprout funds
-Address prefix change (t1,t3 becomes R,b)
-Enable CryptoConditions (Custom Consensus)
-Block Size increase to 4MB
+\begin{itemize}
+    \item New Genesis Block
+    \item Sprout Disabled
+    \item First Pure Sapling Chain, with Super Fast Shielded Transactions
+    \item s/ZEC/KMD/ as upstream
+    \item New main Github repo
+    \item Addition of 10\% Founders Reward
+    \item Address prefix change (t1,t3 becomes R,b)
+    \item Enable CryptoConditions (Custom Consensus)
+    \item Block Size increase to 4MB
+    \item Shielding Rule
+    \item TLS Support
+\end{itemize}
+
 
 \nsection{Hush v1-v2 Total Supply Bug}
 
@@ -523,7 +531,9 @@ To calculate the value of ac\_end for the new Hush chain:
 ac\_end = 5922239 - (number of blocks in old Hush chain) - (zero block reward transition period)
 ac\_end = 5922239 - 500000 - 128
 ac\_end = 5422111
-To clarify, Hush will have a consensus rule that block rewards stop at block 5422111 which will enforce a total supply of 21M coins.
+
+To clarify, Hush will have a consensus rule that block rewards stop at block
+5422111 which will enforce a total supply of 21M coins.
 
 \nsection{New Blockchain Size}
 
