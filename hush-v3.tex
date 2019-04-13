@@ -442,10 +442,10 @@ electronic commerce and payment, financial privacy, proof of work, zero knowledg
 \normalsize \noindent \textbf{Abstract.}
 
 \Hush originally was a source code fork of the \Zcash 1.0.8 codebase. Hush was
-    originally called "Zdash" and is not a chain fork, Hush mined it's own
-    unique genesis block.
-
-    ...
+    originally called "Zdash" and mined a genesis block on Nov 17, 2016.
+The latest version of \Hush migrates to a new codebase with a new genesis
+block while keeping the emission schedule as close as possible to the original
+intentions
 
 \vspace{2.5ex}
 \noindent \textbf{Keywords:}~ \StrSubstitute[0]{\keywords}{,}{, }.
@@ -490,6 +490,11 @@ electronic commerce and payment, financial privacy, proof of work, zero knowledg
     \item Shielding Rule
     \item TLS Support
 \end{itemize}
+
+\begin{quote}
+    Governments can be useful to the governed only so long as inherent tendencies toward tyranny are restrained.
+            - The Stolen Journals
+\end{quote}
 
 \nsection{First Pure Sapling Blockchain}
 
@@ -562,6 +567,11 @@ ARRR or various others.
 
 \nsection{Hush v1-v2 Total Supply Bug}
 
+\begin{quote}
+To save one from a mistake is a gift of paradise.
+    - Stilgar to Lady Jessica
+\end{quote}
+
 The original Hush devs added the original pre-mine in such a way that Hush would
 have a supply greater than the intended 21,000,000 after about 30 years. This
 fact was discovered in the process of emulating the current Hush supply curve
@@ -615,6 +625,29 @@ about 30,000 unique addresses on the Hush blockchain which contain funds.
 
 This compression will greatly improve the user experience of new Hush users,
 which can install and sync a full node in just a few minutes.
+
+\nsection{Delayed Proof-Of-Work}
+
+\begin{quote}
+    May thy knife chip and shatter.
+        - Fremen saying of ill will against an adversary
+\end{quote}
+
+HUSH will continue to have Delayed Proof-of-Work as protection against 51\%
+attacks and double spend attack prevention. No other technology is proven
+in production like DPoW.
+
+The current implementation of DPoW in Hush v2 was tested in a test attack.  A
+large amount of hashrate was rented at NiceHash, and a 51\% attack was
+attempted, which would re-organized a notarized block. The attack repeatedly
+failed and wasted a large amount of BTC of the simulated attacker.
+
+HUSHv3 will be migrating to the core DPoW implementation of Komodo itself,
+instead of relying on the implementation that was ported from Komodo to the
+Hush v2 codebase. This further increases HUSH development velocity and reduces
+our maintenance burden to merge upstream code.
+
+\nsection{Cryptopia Attack}
 
 \nsection{Special Thanks}
 
