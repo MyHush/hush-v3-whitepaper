@@ -492,6 +492,75 @@ electronic commerce and payment, financial privacy, proof of work, zero knowledg
     \item TLS Support
 \end{itemize}
 
+\nsection{First Pure Sapling Blockchain}
+
+HUSH is proud to be the very first pure Sapling blockchain! HUSH enables
+Sapling at Block 1, which means no Sprout UTXOs will ever exist on our new
+blockchain. This removes any future risk of Sprout bugs/CVEs and drastically
+reduces the maintenance cost going forward, as Sprout code and Sapling code
+are different codepaths and so supporting Sprout at least doubles the amount
+of code to maintain.
+
+No other blockchain has started as a pure Sapling chain, all other existing
+Zcash source code forks have transitioned from Sprout to Sapling.
+
+\nsection{10\% Founders Reward}
+
+HUSHv3 adds a 10\% Founders Reward, in perpetuity, until block rewards end.
+This is approximately 5.5 million blocks or about 30 years.
+
+The Founders Reward is paid out every block to a single address:
+
+    RHushEyeDm7XwtaTWtyCbjGQumYyV8vMjn
+
+Initially the Founders Reward is 1.25 HUSH, starting at Block 129 until the first
+halving on the new chain at Block 340000.
+
+\nsection{New Upstream: KMD}
+
+HUSH is no longer directly a source code fork of Zcash (ZEC), it is now a fork
+of Komodo (KMD). Since KMD itself is a fork of ZEC, this means we gain an
+immense amount of code and features, and all the development velocity of jl777.
+As an example, during the development of HUSHv3, over the course of a few weeks,
+about 20,000 lines of code was changed in upstream Komodo repo, adding many
+features and fixing various bugs.
+
+We expect to see the developement velocity of the HUSH community greatly
+increase, since we will now essentially have jl777 constantly doing low-level
+blockchain internals coding, which frees up other developer resources to work
+on wallets, explorers, HushList protocol and applications which sit on top
+of the RPC interface.
+
+HUSHv3 is a source code fork of the jl777/komodo git repository and live at
+
+    https://github.com/MyHush/hush3
+
+As of Block 500,000, the legacy Hush network and codebase is unsupported.  The
+network is not being forcibly turned off, those that want are free to use it,
+and use any encrypted data they may have in memo fields.
+
+\nsection{CryptoConditions}
+
+CryptoConditions are UTXO-based smart contracts and also an IETF standard:
+
+    https://tools.ietf.org/html/draft-thomas-crypto-conditions-04
+
+Hush will enable the following CryptoConditions initially, and plans to enable
+others as time goes on:
+
+\begin{itemize}
+    \item Heir - cryptocoin inheritance
+    \item Gateway
+    \item Oracle
+    \item Channel
+    \item Faucet
+    \item Dilithium
+\end{itemize}
+
+These features will allow for an entire ecosystem of decentralized applications
+(dApps) to be built on top of HUSH, which integrate with HushList protocol as
+well as cross-chain integrations with other Komodo asset chains, such as BTCH,
+ARRR or various others.
 
 \nsection{Hush v1-v2 Total Supply Bug}
 
@@ -534,6 +603,9 @@ ac\_end = 5922239 - (number of blocks in old Hush chain) - (zero block reward tr
 ac\_end = 5922239 - 500000 - 128
 ac\_end = 5422111
 
+TODO: deal with asset magic epsilon, which could be up to 10? blocks of BR
+average case it will be 5 blocks, worst case 10, so 5422101 would enforce just less than 21M
+
 To clarify, Hush will have a consensus rule that block rewards stop at block
 5422111 which will enforce a total supply of 21M coins.
 
@@ -554,8 +626,6 @@ Zcash core communities.
 
 Special thanks to radix42, Savior Of The Memo Field, for mentoring me in my
 early days as a cryptocoin dev.
-
-Remember, remember, the 5th Of November.
 
 \nsection{References}
 
