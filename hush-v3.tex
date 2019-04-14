@@ -513,12 +513,25 @@ Zcash source code forks have transitioned from Sprout to Sapling.
 HUSHv3 adds a 10\% Founders Reward, in perpetuity, until block rewards end.
 This is approximately 5.5 million blocks or about 30 years.
 
-The Founders Reward is paid out every block to a single address:
+The Founders Reward is paid out every block in vout\[1\] to a single address
+of type "pubkeyhash":
 
     RHushEyeDm7XwtaTWtyCbjGQumYyV8vMjn
 
+with scriptPubKey
+
+    76a9145eb10cf64f2bab1b457f1f25e658526155928fac88ac
+
 Initially the Founders Reward is 1.25 HUSH, starting at Block 129 until the first
 halving on the new chain at Block 340000.
+
+In order to help transition, there will be a period of 128 blocks of zero block
+reward, which enables the new mainnet to be started just before our snapshot
+block, ready for miners to switch over. This also allows mining necessary blocks
+to start the chain and dispersing funds without developers unfarily earning many
+of the early block rewards. This corresponds to roughly 6hrs but our block times
+are not expected to converge to 150 seconds for a few days, so it is a rough
+estimate.
 
 \nsection{New Upstream: KMD}
 
