@@ -478,7 +478,7 @@ intentions
 \begin{itemize}
     \item New Genesis Block
     \item Sprout Disabled
-    \item First Pure Sapling Chain, with Super Fast Shielded Transactions
+    \item First Sprout-Free Chain, with Only Sapling Shielded Transactions
     \item s/ZEC/KMD/ as upstream
     \item New main Github repo
     \item Addition of 10\% Founders Reward
@@ -496,17 +496,23 @@ intentions
             - The Stolen Journals
 \end{quote}
 
-\nsection{First Pure Sapling Blockchain}
+\nsection{First Sprout-Free Sapling Blockchain}
 
-HUSH is proud to be the very first pure Sapling blockchain! HUSH enables
-Sapling at Block 1, which means no Sprout UTXOs will ever exist on our new
-blockchain. This removes any future risk of Sprout bugs/CVEs and drastically
-reduces the maintenance cost going forward, as Sprout code and Sapling code
-are different codepaths and so supporting Sprout at least doubles the amount
-of code to maintain.
+HUSH is proud to be the very first blockchain to enforce only Sapling
+transaction from the very beginning! HUSH enables Sapling at Block 1, which
+means no Sprout UTXOs will ever exist on our new blockchain. This removes any
+future risk of Sprout bugs/CVEs and drastically reduces the maintenance cost
+going forward, as Sprout code and Sapling code are different codepaths and so
+supporting Sprout at least doubles the amount of code to maintain.
 
 No other blockchain has started as a pure Sapling chain, all other existing
 Zcash source code forks have transitioned from Sprout to Sapling.
+
+Most closely aligned to Hush is our sister coin Pirate (ARRR), which was the
+very first coin to disable normal transparent transactions (only coinbase and
+notarizations) and was one of the first coins to transition away from Sprout to
+Sapling. The decision for HUSH to disable support for old Sprout coins, after a
+certain block height, was inspired by Pirate: https://pirate.black
 
 \nsection{10\% Founders Reward}
 
@@ -548,7 +554,7 @@ blockchain internals coding, which frees up other developer resources to work
 on wallets, explorers, HushList protocol and applications which sit on top
 of the RPC interface.
 
-HUSHv3 is a source code fork of the jl777/komodo git repository and live at
+HUSHv3 is a source code fork of the jl777/komodo git repository and lives at
 
     https://github.com/MyHush/hush3
 
