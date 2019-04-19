@@ -705,9 +705,12 @@ was orphaned and replaced by the 45 block subchain:
 \end{quote}
 
 Note that the above block hashes must be looked up on a legacy HUSH block
-explorer such as explorer.hush.zelcore.io and additionally, the orphaned block
-will not be in the main chain and only will exist as an orphaned block on nodes
-which originally saw that invalidated chain.
+explorer such as :
+
+https://explorer.hush.zelcore.io
+
+Additionally, the orphaned block will not be in the main chain and only will
+exist as an orphaned block on nodes which originally saw that invalidated chain.
 
 Via blockchain analysis and detailed transaction logs from Cryptopia, who gave
 us details about which addresses the attacker was using, it was determined that
@@ -717,7 +720,9 @@ old HUSH v2 addresses on the left and new HUSH v3 addresses on the right.
 \begin{quote}
 
 t1bEBr1LdBQtHun7B5L82R65FgpWyyWFx8L = RSdmvBomouuGP9RUc5J2NoJYCRnVqT3j5V
+
 t1KttMaacGw17oFitV448TGfwM2yovm4g6Q = RBJURm3kuS26Gd3C1oE8QyuDreFKpkNT2Z
+
 \end{quote}
 
 The first address owns 651000 HUSH and the second owns 29279.8 HUSH on the
@@ -830,6 +835,24 @@ Additionally, HUSH will be researching how CryptoCondition Smart Contracts can
 be integrated with HushList protocol.  The stage has already been set for this
 by defining a custom "-ac\_cclib" called "hush3" in our chain paramaters. This
 will allow Hush to define custom UTXO smart contracts specific to our chain.
+
+\nsection{Sapling Addresses Vs. Sprout Addresses}
+
+Althought they both start with "z" the similarity between Sprout and Sapling ends
+there. An example of a new Sapling address is:
+
+zs1g0v8l777tjcuwp8y2wwve46vfpwp669yhl026jrn2rwl7jdjh3jvgc0503t3cuhj457s5km2k0p
+
+It has a prefix of "zs" instead of "zc" and you will note it contains all
+lowercase characters.  Additionally it has characters which are not in Base58,
+such as a lower case "l", unlike all transaprent Bitcoin/Zcash addresses and
+Sprout shielded addresses.
+
+This is because Sapling addresss are in BECH32 format, and are case insensitive,
+so this address is in every way equivalent to the above address:
+
+zs1G0V8L777TJCUWP8Y2WWVE46VFPWP669YHL026JRN2RWL7JDJH3JVGC0503T3CUHJ457S5KM2K0P
+
 
 \nsection{Future Directions}
 
