@@ -624,9 +624,6 @@ ac\_end = 5922239 - (number of blocks in old Hush chain) - (zero block reward tr
 ac\_end = 5922239 - 500000 - 128
 ac\_end = 5422111
 
-TODO: deal with asset magic epsilon, which could be up to 10? blocks of BR
-average case it will be 5 blocks, worst case 10, so 5422101 would enforce just less than 21M
-
 To clarify, Hush will have a consensus rule that block rewards stop at block
 5422111 which will enforce a total supply of 21M coins.
 
@@ -661,6 +658,104 @@ Hush v2 codebase. This further increases HUSH development velocity and reduces
 our maintenance burden to merge upstream code.
 
 \nsection{Cryptopia Attack}
+
+Delayed-Proof-of-Work had been implemented in Hush in early 2018 but took many
+months to finish testing and be pushed to mainnet. During this time, an
+enterprising attacker probably saw that their window to attack HUSH was closing.
+
+This attacker performed a series of 51\% and double spend attacks against
+Cryptopia, between August 28th and September 21st 2018 It was designed to use
+amounts small enough to evade daily limits or fraud detection.
+
+There were dozens of block reorganizations longer than branchLen=2, the largest
+being a reorganization of:
+
+\begin{quote}
+
+At Fri, 21 Sep 2018 07:00:50 GMT the subchain
+00000009abdccd07615216765b17f99fbfc50e4106efe7bee2e4ca22810b0fa3..
+000000028afb1daccbd0ac17d8685deeb0d072fdc5d4609209dd68675f873611 (46 blocks)
+
+was orphaned and replaced by
+00000009abdccd07615216765b17f99fbfc50e4106efe7bee2e4ca22810b0fa3..
+000000038aadc3d77ae6df320e51168e6215f9abe62b65b51633715f719773bc (45 blocks)
+
+\end{quote}
+
+Note that the above block hashes must be looked up on a legacy HUSH block
+explorer such as https://explorer.hush.zelcore.io and additionally, the orphaned
+block will not be in the main chain and only will exist as an orphaned block on
+nodes which originally saw that invalidated chain.
+
+Via blockchain analysis and detailed transaction logs from Cryptopia, who gave
+us details about which addresses the attacker was using, it was determined
+that the following addresses are owned by the Cryptopia Double Spend Attacker,
+with old HUSH v2 addresses on the left and new HUSH v3 addresses on the right.
+
+\begin{quote}
+
+651000  HUSH t1bEBr1LdBQtHun7B5L82R65FgpWyyWFx8L = RSdmvBomouuGP9RUc5J2NoJYCRnVqT3j5V
+29279.8 HUSH t1KttMaacGw17oFitV448TGfwM2yovm4g6Q = RBJURm3kuS26Gd3C1oE8QyuDreFKpkNT2Z
+
+\end{quote}
+
+These two addresses own a total of ~680,000 HUSH which was not dispersed to the
+equivalent addresses on the new HUSH v3 mainnet. These funds currently remain in
+the HUSH Founders Reward wallet and will be used to reimburse all who were
+stolen from at Cryptopia, which will enable HUSH trading to resume. Any remaining
+funds will be used for additional exchange listings.
+
+\nsection{Immutability of HUSH v2 + v3}
+
+Please note that the immutability of the legacy Hush mainnet or new Hush v3
+mainnet was never compromised. The Bitcoin Protocol was observed strictly and
+Hush did not do what other coins have done in similar situations which is to
+actually backdoor the Bitcoin Protocol itself, and make it such that certain
+pubkeys can make transactions which they shouldn't, to spend funds which were
+lost or stolen, etc. This was deemed unacceptable, for obvious moral, security
+and financial reasons.
+
+Instead, we have chosen to keep our original intentations, which is that we do
+not believe that forcibly turning off peoples nodes is right. So people on the
+legacy Hush chain are free to continue using it. They should note, that the
+Sprout Inflation bug is still waiting to be exploited there and that DPoW is no
+longer active (the last notarization was Block 501080), so 51\% attackers have a
+playground.
+
+Every user of Hush gets to decide if they choose to keep using the v2 or v3
+chain and no user is forced to use either. This way embraces decentralization
+at the very core, since we do not force our choices upon our users. They
+get to decide which chain goes forward.
+
+\nsection{Sprout Inflation Bug Playground}
+
+Let it be known that HUSH v2 mainnet is considered a Sprout Inflation bug
+playground, and there is a bounty of 500 HUSH for a script which makes it
+trivial to exploit the Sprout inflation bug and generate arbitrary amounts
+of funds insize of a Sprout zaddr.
+
+Developers and information security researchers are directed here for more
+info: https://github.com/MyHush/hush3/issues/7
+
+\nsection{Dispersing Funds To The New Mainnet: Swapping Airdrop}
+
+This process is sometimes called an "airdrop" because the technical process of
+sending funds to addresses is the same, but HUSH v3 is technically a "coin
+swap", since we do not support our legacy chain.
+
+A total of 3127 transactions with "sendmany" were made to complete sending funds
+to ~31,000 unique addresses which contained funds on the Hush v2 blockchain as
+of the snapshot block of 500,000. This data was extracted via the "getsnapshot"
+RPC which I helped write for Komodo and ported to Hush v2.
+
+Full data is available here:
+
+https://github.com/MyHush/hush3/blob/duke/contrib/snapshot/snapshot\_500000.json
+
+The actual script used to disperse funds can be found here:
+
+https://github.com/MyHush/hush3/blob/duke/contrib/snapshot/airdrop\_hush3.sh
+
 
 \nsection{Special Thanks}
 
