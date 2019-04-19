@@ -442,10 +442,10 @@ electronic commerce and payment, financial privacy, proof of work, zero knowledg
 \normalsize \noindent \textbf{Abstract.}
 
 \Hush originally was a source code fork of the \Zcash 1.0.8 codebase. Hush was
-    originally called "Zdash" and mined a genesis block on Nov 17, 2016.
-The latest version of \Hush migrates to a new codebase with a new genesis
-block while keeping the emission schedule as close as possible to the original
-intentions
+    originally called "Zdash" and mined a genesis block on Nov 17, 2016.  The
+    latest version of \Hush migrates to a new codebase based on Komodo and Zcash
+    2.0.x with a new genesis block while keeping the emission schedule as close
+    as possible to the original intentions.
 
 \vspace{2.5ex}
 \noindent \textbf{Keywords:}~ \StrSubstitute[0]{\keywords}{,}{, }.
@@ -653,7 +653,12 @@ HUSH will continue to have Delayed Proof-of-Work as protection against 51\%
 attacks and double spend attack prevention. No other technology is proven
 in production like DPoW.
 
-The current implementation of DPoW in Hush v2 was tested in a test attack.  A
+The first DPoW transaction occured at Apr 14, 2019 10:38:10 PM Eastern Time
+on the new HUSH mainnet :
+
+https://explorer.myhush.org/tx/e73105092bbf01694af250f8ef89aa38d955856a5a3496e3336eaca59492b29f
+
+The current implementation of DPoW in Hush v2 was tested in a test attack. A
 large amount of hashrate was rented at NiceHash, and a 51\% attack was
 attempted, which would re-organized a notarized block. The attack repeatedly
 failed and wasted a large amount of BTC of the simulated attacker.
@@ -678,13 +683,17 @@ being a reorganization of:
 
 \begin{quote}
 
-At Fri, 21 Sep 2018 07:00:50 GMT the subchain
-00000009abdccd07615216765b17f99fbfc50e4106efe7bee2e4ca22810b0fa3..
-000000028afb1daccbd0ac17d8685deeb0d072fdc5d4609209dd68675f873611 (46 blocks)
+At Fri, 21 Sep 2018 07:00:50 GMT the 46 block subchain:
 
-was orphaned and replaced by
 00000009abdccd07615216765b17f99fbfc50e4106efe7bee2e4ca22810b0fa3..
-000000038aadc3d77ae6df320e51168e6215f9abe62b65b51633715f719773bc (45 blocks)
+
+000000028afb1daccbd0ac17d8685deeb0d072fdc5d4609209dd68675f873611
+
+was orphaned and replaced by the 45 block subchain:
+
+00000009abdccd07615216765b17f99fbfc50e4106efe7bee2e4ca22810b0fa3..
+
+000000038aadc3d77ae6df320e51168e6215f9abe62b65b51633715f719773bc
 
 \end{quote}
 
@@ -769,6 +778,25 @@ The actual script used to disperse funds can be found here:
 
 https://github.com/MyHush/hush3/blob/duke/contrib/snapshot/airdrop\_hush3.sh
 
+\nsection{Shielding Rule}
+
+Previously Hush inherited the rule about shielding coinbase before sending to a
+transparent address. Now that Hush is based on Komodo, this rule no longer
+exists, which means mining pools can send newly mined coinbase funds directly to
+pooled miners.
+
+The rule was well-intentioned, but it did not result in real privacy
+improvements, since 95\% of all ZEC is still in transparent addresses, and
+people move amounts "throught" zaddrs (instead of keeping funds in them) in such
+a way as to make transactions easy to link.
+
+Hush will take the stance of educating users to the risks of transparent addresses,
+constantly, and make shielded operations the default in all GUI wallets.
+
+Additionally, since shielding is so fast now, and various service providers are
+now supporting Sapling shielded addresses, we encourage users to hold funds in
+Sapling zaddrs by default and only use transparent addresses when necessary,
+such as exchanges that only support transparent addresses.
 
 \nsection{Special Thanks}
 
