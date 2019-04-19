@@ -807,7 +807,46 @@ such as exchanges that only support transparent addresses.
 
 \nsection {Sapling-Enabled HushList}
 
-...
+The HushList protocol whitepaper
+
+https://github.com/leto/hushlist/blob/master/whitepaper/protocol.pdf
+
+describes a protcol which sits on top of the Zcash Protocol, utilizing the memo
+field as 512 bytes of encrypted storage in every transaction. At the time, only
+Sprout was available and the fact that one shielded transaction could take 45
+minutes and gigabytes of RAM, meant HushList protocol was theoretically
+interesting but not immediately practical.
+
+Now that Sapling shielded transactions run in seconds with megabytes not
+gigabytes of RAM usage, HushList protocol can be upgraded to take advantag of
+new Sapling features and actually be implemented by GUI wallets and other
+applications.
+
+HushList protocol has immense implications for many people who are persecuted
+for their beliefs or their knowledge and many other reasons. It is an immense
+upgrade in technology for whistleblowers, allowing for many flexible workflows.
+
+Additionally, HUSH will be researching how CryptoCondition Smart Contracts can
+be integrated with HushList protocol.  The stage has already been set for this
+by defining a custom "-ac\_cclib" called "hush3" in our chain paramaters. This
+will allow Hush to define custom UTXO smart contracts specific to our chain.
+
+\nsection{Future Directions}
+
+The HUSH team is furiously working on releasing a multi-platform GUI full
+node wallet which will support HushList operations such as uploading a
+file to the HUSH blockchain or anonymously post to a HushList.
+
+HUSH will benefit from all the recent work being done by radix42 on ARMv8
+support for Komodo and all asset chains. This will allow Hush to run
+full nodes on most modern mobile phones, tablets and embedded devices.
+Coupled with a GUI mobile app, this will allow people to have the full
+power of a HUSH full node in their pocket.
+
+Custom HUSH hardware wallets are also being researched.
+
+Branded HUSH ASICs is another option that will be pursued if the community shows
+interest.
 
 \nsection{Special Thanks}
 
