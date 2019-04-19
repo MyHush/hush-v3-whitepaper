@@ -513,7 +513,7 @@ going forward, as Sprout code and Sapling code are different codepaths and so
 supporting Sprout at least doubles the amount of code to maintain.
 
 No other blockchain has started as a pure Sapling chain, all other existing
-Zcash source code forks have transitioned from Sprout to Sapling.
+\cite{Zcash} source code forks have transitioned from Sprout to Sapling.
 
 Most closely aligned to Hush is our sister coin Pirate (ARRR), which was the
 very first coin to disable normal transparent transactions (only coinbase and
@@ -549,7 +549,7 @@ estimate.
 \nsection{New Upstream: KMD}
 
 HUSH is no longer directly a source code fork of Zcash (ZEC), it is now a fork
-of Komodo (KMD). Since KMD itself is a fork of ZEC, this means we gain an
+of \cite{Komodo} (KMD). Since KMD itself is a fork of ZEC, this means we gain an
 immense amount of code and features, and all the development velocity of jl777.
 As an example, during the development of HUSHv3, over the course of a few weeks,
 about 20,000 lines of code was changed in upstream Komodo repo, adding many
@@ -580,10 +580,10 @@ others as time goes on:
 
 \begin{itemize}
     \item Heir - cryptocoin inheritance
-    \item Gateway
-    \item Oracle
-    \item Channel
-    \item Faucet
+    \item Gateway - tokenized representations of foreign blockchain assets
+    \item Oracle - bridge off-chain data on-chain
+    \item Channel - instant payments in a trustless environment
+    \item Faucet - blockchain faucet
 \end{itemize}
 
 These features will allow for an entire ecosystem of decentralized applications
@@ -658,7 +658,7 @@ which can install and sync a full node in just a few minutes.
 
 HUSH will continue to have Delayed Proof-of-Work as protection against 51\%
 attacks and double spend attack prevention. No other technology is proven
-in production like DPoW.
+in production like \cite{DPoW}.
 
 The first DPoW transaction occured at Apr 14, 2019 10:38:10 PM Eastern Time
 on the new HUSH mainnet :
@@ -730,7 +730,7 @@ additional exchange listings.
 \nsection{Immutability of HUSH v2 + v3}
 
 Please note that the immutability of the legacy Hush mainnet or new Hush v3
-mainnet was never compromised. The Bitcoin Protocol was observed strictly and
+mainnet was never compromised. The \cite{Bitcoin} Protocol was observed strictly and
 Hush did not do what other coins have done in similar situations which is to
 actually backdoor the Bitcoin Protocol itself, and make it such that certain
 pubkeys can make transactions which they shouldn't, to spend funds which were
