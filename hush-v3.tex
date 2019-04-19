@@ -741,7 +741,9 @@ trivial to exploit the Sprout inflation bug and generate arbitrary amounts
 of funds insize of a Sprout zaddr.
 
 Developers and information security researchers are directed here for more
-info: https://github.com/MyHush/hush3/issues/7
+info:
+
+https://github.com/MyHush/hush3/issues/7
 
 \nsection{Dispersing Funds To The New Mainnet: Swapping Airdrop}
 
@@ -751,8 +753,13 @@ swap", since we do not support our legacy chain.
 
 A total of 3127 transactions with "sendmany" were made to complete sending funds
 to ~31,000 unique addresses which contained funds on the Hush v2 blockchain as
-of the snapshot block of 500,000. This data was extracted via the "getsnapshot"
-RPC which I helped write for Komodo and ported to Hush v2.
+of the snapshot block of 500,000. The average address had about 200 HUSH while
+the median address had 1 HUSH.
+
+This data was extracted via the "getsnapshot" RPC which I helped write for
+Komodo and ported to Hush v2. Additionally I ported the -stopat CLI param
+from Komodo to Hush v2, so that the full node could be stopped at an arbitrary
+block height while still able to answer RPC requests.
 
 Full data is available here:
 
