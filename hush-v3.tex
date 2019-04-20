@@ -82,7 +82,7 @@
 \newlist{formulae}{itemize}{3}
 \setlist[formulae]{itemsep=0.2ex,topsep=0ex,leftmargin=1.5em,label=,after=\vspace{1.5ex}}
 
-\newcommand{\docversion}{Pre-Release Version}
+\newcommand{\docversion}{Whitepaper Version 1.0}
 \newcommand{\termbf}[1]{\textbf{#1}\xspace}
 \newcommand{\Hushlist}{\termbf{HushList}}
 \newcommand{\HushList}{\termbf{HushList}}
@@ -432,7 +432,7 @@ zkSNARKs, HushList, cryptoconditions, smart contracts, 51\% attack, double spend
 \title{\doctitle \\
 \Large \docversion}
 \author{
-\Large \leadauthor\hairspace\thanks{\;duke@leto.net https://myhush.org}
+\Large \leadauthor\hairspace\thanks{\;duke@leto.net , duke.leto.net, @dukeleto}
 }
 \date{\today}
 \maketitle
@@ -446,7 +446,8 @@ zkSNARKs, HushList, cryptoconditions, smart contracts, 51\% attack, double spend
     originally called "Zdash" and mined a genesis block on Nov 17, 2016.  The
     latest version of \Hush migrates to a new codebase based on Komodo and Zcash
     2.0.x with a new genesis block mined on April 14th 2019, while keeping the
-    emission schedule as close as possible to the original intentions.
+    emission schedule as close as possible to the original intentions. Latest
+    details can be found at https://myhush.org .
 
 \begin{quote}
 A beginning is the time for taking the most delicate care that the balances are correct.
@@ -474,7 +475,7 @@ A beginning is the time for taking the most delicate care that the balances are 
 
 \begin{itemize}
 \item 21M total supply
-\item Block reward = 12.5 HUSH
+\item Block reward = 12.5 \HUSH
 \item Block time = 150 seconds
 \item Halving interval = every 210,000 blocks
 \item Delayed-Proof-Of-Work
@@ -487,7 +488,7 @@ A beginning is the time for taking the most delicate care that the balances are 
     \item New Genesis Block
     \item Sprout Disabled
     \item First Sprout-Free Chain, with Only Sapling Shielded Transactions
-    \item Replace ZEC with KMD as upstream
+    \item Replace Zcash (\ZEC) with Komodo (\KMD) as upstream
     \item New main Github repo
     \item Addition of 10\% Founders Reward
     \item Address prefix change (t1,t3 becomes R,b)
@@ -506,13 +507,13 @@ A beginning is the time for taking the most delicate care that the balances are 
 
 \nsection{New Genesis Block}
 
-The new HUSH v3 mainnet genesis block has block hash:
+The new \HUSH v3 mainnet genesis block has block hash:
 
 06c3269d065d19960ba2aac92daad182f24961043b8e279a64a3c0298d4bf7ed
 
 and occured at unix Epoch time 1555263294.
 
-Additional useful metadata that can be used to verify you have the correct HUSH
+Additional useful metadata that can be used to verify you have the correct \HUSH
 genesis block:
 
 "nextblockhash": "0a3bcdd57276c1a07aa657992967fb0c64cd12d489bde85223058381cb58d95d"
@@ -523,16 +524,14 @@ genesis block:
 
 "finalsaplingroot": "3e49b5f954aa9d3545bc6c37744661eea48d7c34e3000d82b7f0010c30f4c2fb",
 
-"hash": "06c3269d065d19960ba2aac92daad182f24961043b8e279a64a3c0298d4bf7ed",
-
 This block can be viewed in a more user-friendly manner at:
 
 https://explorer.myhush.org/block/06c3269d065d19960ba2aac92daad182f24961043b8e279a64a3c0298d4bf7ed
 
 \nsection{First Sprout-Free Sapling Blockchain}
 
-HUSH is proud to be the very first blockchain to enforce only Sapling
-transaction from the very beginning! HUSH enables Sapling at Block 1, which
+\HUSH is proud to be the very first blockchain to enforce only Sapling
+transaction from the very beginning! \HUSH enables Sapling at Block 1, which
 means no Sprout UTXOs will ever exist on our new blockchain. This removes any
 future risk of Sprout bugs/CVEs and drastically reduces the maintenance cost
 going forward, as Sprout code and Sapling code are different codepaths and so
@@ -544,12 +543,12 @@ No other blockchain has started as a pure Sapling chain, all other existing
 Most closely aligned to Hush is our sister coin Pirate (ARRR), which was the
 very first coin to disable normal transparent transactions (only coinbase and
 notarizations) and was one of the first coins to transition away from Sprout to
-Sapling. The decision for HUSH to disable support for old Sprout coins, after a
+Sapling. The decision for \HUSH to disable support for old Sprout coins, after a
 certain block height, was inspired by Pirate: https://pirate.black
 
 \nsection{10\% Founders Reward}
 
-HUSHv3 adds a 10\% Founders Reward, in perpetuity, until block rewards end.
+\HUSH v3 adds a 10\% Founders Reward, in perpetuity, until block rewards end.
 This is approximately 5.5 million blocks or about 30 years.
 
 The Founders Reward is paid out every block in vout[1] to a single address
@@ -561,7 +560,7 @@ with scriptPubKey
 
     76a9145eb10cf64f2bab1b457f1f25e658526155928fac88ac
 
-Initially the Founders Reward is 1.25 HUSH, starting at Block 129 until the first
+Initially the Founders Reward is 1.25 \HUSH, starting at Block 129 until the first
 halving on the new chain at Block 340000.
 
 In order to help transition, there will be a period of 128 blocks of zero block
@@ -574,20 +573,20 @@ estimate.
 
 \nsection{New Upstream: KMD}
 
-HUSH is no longer directly a source code fork of Zcash (ZEC), it is now a fork
-of \cite{Komodo} (KMD). Since KMD itself is a fork of ZEC, this means we gain an
+\HUSH is no longer directly a source code fork of Zcash (\ZEC), it is now a fork
+of \cite{Komodo} (\KMD). Since \KMD itself is a fork of \ZEC, this means we gain an
 immense amount of code and features, and all the development velocity of jl777.
-As an example, during the development of HUSHv3, over the course of a few weeks,
+As an example, during the development of \HUSH v3, over the course of a few weeks,
 about 20,000 lines of code was changed in upstream Komodo repo, adding many
 features and fixing various bugs.
 
-We expect to see the developement velocity of the HUSH community greatly
+We expect to see the developement velocity of the \HUSH community greatly
 increase, since we will now essentially have jl777 constantly doing low-level
 blockchain internals coding, which frees up other developer resources to work
 on wallets, explorers, HushList protocol and applications which sit on top
 of the RPC interface.
 
-HUSHv3 is a source code fork of the jl777/komodo git repository and lives at
+\HUSH v3 is a source code fork of the jl777/komodo git repository and lives at
 
     https://github.com/MyHush/hush3
 
@@ -613,7 +612,7 @@ others as time goes on:
 \end{itemize}
 
 These features will allow for an entire ecosystem of decentralized applications
-(dApps) to be built on top of HUSH, which integrate with HushList protocol as
+(dApps) to be built on top of \HUSH, which integrate with HushList protocol as
 well as cross-chain integrations with other Komodo asset chains that have
 cryptoconditions enabled.
 
@@ -632,23 +631,23 @@ our new chain (Hush v3) by ceasing block rewards when total supply hits 21M
 coins, as intended.
 
 As a reminder, NONE of the current Hush team received any the original 0.76\%
-(160,000 HUSH) pre-mine. All of the original Hush developers who received the
+(160,000 \HUSH) pre-mine. All of the original Hush developers who received the
 reward have long since left the project.
 
 The current Hush chain (version 2) will attain a supply of 21,000,000 coins at
-Block 5922239 which will have a Block Reward of 0.09765625 HUSH. This happens
+Block 5922239 which will have a Block Reward of 0.09765625 \HUSH. This happens
 between the 7th and 8th halvings.
 
-But because the original devs of Hush added a pre-mine of 160,000 HUSH in blocks
+But because the original devs of Hush added a pre-mine of 160,000 \HUSH in blocks
 1 through 4, the current Hush supply curve will continue past the 21M supply
-mark until Block 26039999 when supply is 21159937.4895 HUSH and the last block
+mark until Block 26039999 when supply is 21159937.4895 \HUSH and the last block
 reward of 1 satoshi is awarded just before the 31st halving.
 
 The core issue is that blocks 1 through 4 had a block reward of 40,000 each
 instead of 12.5 each in the GetBlockSubsidy() function defined in main.cpp, but
 the overall emission schedule was not modified to take this into account.
 
-This mistake would eventually lead to an extra 159,937.4895 HUSH of total supply
+This mistake would eventually lead to an extra 159,937.4895 \HUSH of total supply
 beyond the intended totaly supply of 21M, which would happen after about 30
 years, between the 7th and 8th halvings.
 
@@ -682,12 +681,12 @@ which can install and sync a full node in just a few minutes.
         - Fremen saying of ill will against an adversary
 \end{quote}
 
-HUSH will continue to have Delayed Proof-of-Work as protection against 51\%
+\HUSH will continue to have Delayed Proof-of-Work as protection against 51\%
 attacks and double spend attack prevention. No other technology is proven
 in production like \cite{DPoW}.
 
 The first DPoW transaction occured at Apr 14, 2019 10:38:10 PM Eastern Time
-on the new HUSH mainnet :
+on the new \HUSH mainnet :
 
 https://explorer.myhush.org/tx/e73105092bbf01694af250f8ef89aa38d955856a5a3496e3336eaca59492b29f
 
@@ -696,16 +695,16 @@ large amount of hashrate was rented at NiceHash, and a 51\% attack was
 attempted, which would re-organized a notarized block. The attack repeatedly
 failed and wasted a large amount of BTC of the simulated attacker.
 
-HUSHv3 will be migrating to the core DPoW implementation of Komodo itself,
+\HUSH v3 will be migrating to the core DPoW implementation of Komodo itself,
 instead of relying on the implementation that was ported from Komodo to the
-Hush v2 codebase. This further increases HUSH development velocity and reduces
+Hush v2 codebase. This further increases \HUSH development velocity and reduces
 our maintenance burden to merge upstream code.
 
 \nsection{Cryptopia Attack}
 
 Delayed-Proof-of-Work had been implemented in Hush in early 2018 but took many
 months to finish testing and be pushed to mainnet. During this time, an
-enterprising attacker probably saw that their window to attack HUSH was closing.
+enterprising attacker probably saw that their window to attack \HUSH was closing.
 
 This attacker performed a series of 51\% and double spend attacks against
 Cryptopia, between August 28th and September 21st 2018 It was designed to use
@@ -730,7 +729,7 @@ was orphaned and replaced by the 45 block subchain:
 
 \end{quote}
 
-Note that the above block hashes must be looked up on a legacy HUSH block
+Note that the above block hashes must be looked up on a legacy \HUSH block
 explorer such as :
 
 https://explorer.hush.zelcore.io
@@ -741,7 +740,7 @@ exist as an orphaned blocks on nodes which originally saw that invalidated chain
 Via blockchain analysis and detailed transaction logs from Cryptopia, who gave
 us details about which addresses the attacker was using, it was determined that
 the following addresses are owned by the Cryptopia Double Spend Attacker, with
-old HUSH v2 addresses on the left and new HUSH v3 addresses on the right.
+old \HUSH v2 addresses on the left and new \HUSH v3 addresses on the right.
 
 \begin{quote}
 
@@ -751,14 +750,14 @@ t1KttMaacGw17oFitV448TGfwM2yovm4g6Q = RBJURm3kuS26Gd3C1oE8QyuDreFKpkNT2Z
 
 \end{quote}
 
-The first address owns 651000 HUSH and the second owns 29279.8 HUSH on the
-legacy HUSH v2 chain which was not dispersed to the equivalent addresses on the
-new HUSH v3 mainnet. These funds currently remain in the HUSH Founders Reward
+The first address owns 651000 \HUSH and the second owns 29279.8 \HUSH on the
+legacy \HUSH v2 chain which was not dispersed to the equivalent addresses on the
+new \HUSH v3 mainnet. These funds currently remain in the \HUSH Founders Reward
 wallet and will be used to reimburse all who were stolen from at Cryptopia,
-which will enable HUSH trading to resume. Any remaining funds will be used for
+which will enable \HUSH trading to resume. Any remaining funds will be used for
 additional exchange listings.
 
-\nsection{Immutability of HUSH v2 + v3}
+\nsection{Immutability of \HUSH v2 + v3}
 
 Please note that the immutability of the legacy Hush mainnet or new Hush v3
 mainnet was never compromised. The \cite{Bitcoin} Protocol was observed strictly and
@@ -782,8 +781,8 @@ get to decide which chain goes forward.
 
 \nsection{Sprout Inflation Bug Playground}
 
-Let it be known that HUSH v2 mainnet is considered a Sprout Inflation bug
-playground, and there is a bounty of 500 HUSH for a script which makes it
+Let it be known that \HUSH v2 mainnet is considered a Sprout Inflation bug
+playground, and there is a bounty of 500 \HUSH for a script which makes it
 trivial to exploit the Sprout inflation bug and generate arbitrary amounts
 of funds inside of a Sprout zaddr.
 
@@ -795,13 +794,13 @@ https://github.com/MyHush/hush3/issues/7
 \nsection{Dispersing Funds To The New Mainnet: Swapping Airdrop}
 
 This process is sometimes called an "airdrop" because the technical process of
-sending funds to addresses is the same, but HUSH v3 is technically a "coin
+sending funds to addresses is the same, but \HUSH v3 is technically a "coin
 swap", since we do not support our legacy chain.
 
 A total of 3127 transactions with "sendmany" were made to complete sending funds
 to 31,267 unique addresses which contained funds on the Hush v2 blockchain as
-of the snapshot block of 500,000. The average address had about 200 HUSH while
-the median address had 1 HUSH.
+of the snapshot block of 500,000. The average address had about 200 \HUSH while
+the median address had 1 \HUSH.
 
 This data was extracted via the "getsnapshot" RPC which I helped write for
 Komodo and ported to Hush v2. Additionally I ported the -stopat CLI param
